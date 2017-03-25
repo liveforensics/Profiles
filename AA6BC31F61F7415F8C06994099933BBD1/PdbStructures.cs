@@ -1,17 +1,17 @@
 using System;
 
-namespace MemoryExplorer.Symbols
+namespace LiveForensics.Symbols
 {
 	#region HEADER
-	public static class CatalogueInformation
+	public class CatalogueInformation
 	{
-		 public static Guid Guid { get { return new Guid("AA6BC31F-61F7-415F-8C06-994099933BBD"); } }
-		 public static uint Age { get { return 1; } }
-		 public static string MachineType { get { return @"Amd64"; } }
-		 public static string SymbolsFileName { get { return @"ntkrnlmp.pdb"; } }
-		 public static uint Signature { get { return 1439015853; } }
-		 public static string Contents { get { return @"[""_EPROCESS"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29801"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_29938"",""_FAST_MUTEX"",""_UNNAMED_29940"",""_MMSUPPORT_FLAGS"",""_KEVENT""])"; } }
-		 public static string Created { get { return "25-03-2017T15:21:57"; } }
+		 public Guid Guid { get { return new Guid("AA6BC31F-61F7-415F-8C06-994099933BBD"); } }
+		 public uint Age { get { return 1; } }
+		 public string MachineType { get { return @"Amd64"; } }
+		 public string SymbolsFileName { get { return @"ntkrnlmp.pdb"; } }
+		 public uint Signature { get { return 1439015853; } }
+		 public string Contents { get { return @"[""_EPROCESS"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29801"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_29938"",""_FAST_MUTEX"",""_UNNAMED_29940"",""_MMSUPPORT_FLAGS"",""_KEVENT""])"; } }
+		 public string Created { get { return "25-03-2017T18:39:40"; } }
 	}
 	#endregion
 	#region _EPROCESS
@@ -25,8 +25,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 1944; } }
-		public static string manifest
+		public int MxStructureSize { get { return 1944; } }
+		public string manifest
 		{
 			get
 			{
@@ -1340,8 +1340,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 728; } }
-		public static string manifest
+		public int MxStructureSize { get { return 728; } }
+		public string manifest
 		{
 			get
 			{
@@ -1636,8 +1636,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1720,8 +1720,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1749,8 +1749,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 16; } }
-		public static string manifest
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
 		{
 			get
 			{
@@ -1778,8 +1778,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1818,8 +1818,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1847,8 +1847,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1887,8 +1887,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1914,8 +1914,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -1941,8 +1941,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 248; } }
-		public static string manifest
+		public int MxStructureSize { get { return 248; } }
+		public string manifest
 		{
 			get
 			{
@@ -2045,8 +2045,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 32; } }
-		public static string manifest
+		public int MxStructureSize { get { return 32; } }
+		public string manifest
 		{
 			get
 			{
@@ -2090,8 +2090,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 1; } }
-		public static string manifest
+		public int MxStructureSize { get { return 1; } }
+		public string manifest
 		{
 			get
 			{
@@ -2150,8 +2150,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 24; } }
-		public static string manifest
+		public int MxStructureSize { get { return 24; } }
+		public string manifest
 		{
 			get
 			{
@@ -2557,8 +2557,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 168; } }
-		public static string manifest
+		public int MxStructureSize { get { return 168; } }
+		public string manifest
 		{
 			get
 			{
@@ -2599,8 +2599,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 8; } }
-		public static string manifest
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
 		{
 			get
 			{
@@ -2626,8 +2626,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 1; } }
-		public static string manifest
+		public int MxStructureSize { get { return 1; } }
+		public string manifest
 		{
 			get
 			{
@@ -2743,8 +2743,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 4; } }
-		public static string manifest
+		public int MxStructureSize { get { return 4; } }
+		public string manifest
 		{
 			get
 			{
@@ -2792,8 +2792,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 16; } }
-		public static string manifest
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
 		{
 			get
 			{
@@ -2847,8 +2847,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 4; } }
-		public static string manifest
+		public int MxStructureSize { get { return 4; } }
+		public string manifest
 		{
 			get
 			{
@@ -2880,8 +2880,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 56; } }
-		public static string manifest
+		public int MxStructureSize { get { return 56; } }
+		public string manifest
 		{
 			get
 			{
@@ -2922,8 +2922,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 4; } }
-		public static string manifest
+		public int MxStructureSize { get { return 4; } }
+		public string manifest
 		{
 			get
 			{
@@ -3057,8 +3057,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 4; } }
-		public static string manifest
+		public int MxStructureSize { get { return 4; } }
+		public string manifest
 		{
 			get
 			{
@@ -3249,8 +3249,8 @@ namespace MemoryExplorer.Symbols
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
 		}
-		public static int MxStructureSize { get { return 24; } }
-		public static string manifest
+		public int MxStructureSize { get { return 24; } }
+		public string manifest
 		{
 			get
 			{

@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 
-namespace MemoryExplorer.Symbols
+namespace LiveForensics.Symbols
 {
-	public class MxConstants
+	public partial class MxSymbols
 	{
 		private Dictionary<string, uint> _lookup = new Dictionary<string, uint>();
-		public uint? Lookup(string key)
+		public uint? LookupConstant(string key)
 		{
 			if(_lookup.ContainsKey(key))
 				return _lookup[key];
 			return null;
 		}
-		public MxConstants()
+		void LoadConstants()
 		{
 			_lookup.Add("___entry_from_strcat_in_strcpy", 1305603);
 			_lookup.Add("__ascii_memicmp", 1349572);
