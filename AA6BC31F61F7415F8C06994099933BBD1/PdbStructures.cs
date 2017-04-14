@@ -10,8 +10,8 @@ namespace LiveForensics.Symbols
 		 public string MachineType { get { return @"Amd64"; } }
 		 public string SymbolsFileName { get { return @"ntkrnlmp.pdb"; } }
 		 public uint Signature { get { return 1439015853; } }
-		 public string Contents { get { return @"[""_EPROCESS"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29801"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_29938"",""_FAST_MUTEX"",""_UNNAMED_29940"",""_MMSUPPORT_FLAGS"",""_KEVENT""])"; } }
-		 public string Created { get { return "25-03-2017T18:39:40"; } }
+		 public string Contents { get { return @"[""_EPROCESS"",""_KUSER_SHARED_DATA"",""_OBJECT_TYPE"",""_OBJECT_HEADER"",""_OBJECT_DIRECTORY_ENTRY"",""_OBJECT_DIRECTORY"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29969"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_KSYSTEM_TIME"",""_XSTATE_CONFIGURATION"",""_UNICODE_STRING"",""_OBJECT_TYPE_INITIALIZER"",""_QUAD"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_30174"",""_FAST_MUTEX"",""_UNNAMED_30176"",""_MMSUPPORT_FLAGS"",""_XSTATE_FEATURE"",""_GENERIC_MAPPING"",""_KEVENT""])"; } }
+		 public string Created { get { return "14-04-2017T13:55:24"; } }
 	}
 	#endregion
 	#region _EPROCESS
@@ -1329,6 +1329,851 @@ namespace LiveForensics.Symbols
 		public UInt64 DefaultCpuSetsIndirect { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 1936); } }
 	}
 	#endregion
+	#region _KUSER_SHARED_DATA
+ 
+	public class _KUSER_SHARED_DATA
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _KUSER_SHARED_DATA(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 1800; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_KUSER_SHARED_DATA"": [ 1800, {
+				 ""TickCountLowDeprecated"": [ 0, [ ""UInt32"", ""null"" ]],
+				 ""TickCountMultiplier"": [ 4, [ ""UInt32"", ""null"" ]],
+				 ""InterruptTime"": [ 8, [ ""_KSYSTEM_TIME"", ""null"" ]],
+				 ""SystemTime"": [ 20, [ ""_KSYSTEM_TIME"", ""null"" ]],
+				 ""TimeZoneBias"": [ 32, [ ""_KSYSTEM_TIME"", ""null"" ]],
+				 ""ImageNumberLow"": [ 44, [ ""UInt16"", ""null"" ]],
+				 ""ImageNumberHigh"": [ 46, [ ""UInt16"", ""null"" ]],
+				 ""NtSystemRoot"": [ 48, [ ""Array"", ""{\""count\"":260,\""target\"":\""UInt16\""}"" ]],
+				 ""MaxStackTraceDepth"": [ 568, [ ""UInt32"", ""null"" ]],
+				 ""CryptoExponent"": [ 572, [ ""UInt32"", ""null"" ]],
+				 ""TimeZoneId"": [ 576, [ ""UInt32"", ""null"" ]],
+				 ""LargePageMinimum"": [ 580, [ ""UInt32"", ""null"" ]],
+				 ""AitSamplingValue"": [ 584, [ ""UInt32"", ""null"" ]],
+				 ""AppCompatFlag"": [ 588, [ ""UInt32"", ""null"" ]],
+				 ""RNGSeedVersion"": [ 592, [ ""UInt64"", ""null"" ]],
+				 ""GlobalValidationRunlevel"": [ 600, [ ""UInt32"", ""null"" ]],
+				 ""TimeZoneBiasStamp"": [ 604, [ ""Int32"", ""null"" ]],
+				 ""NtBuildNumber"": [ 608, [ ""UInt32"", ""null"" ]],
+				 ""NtProductType"": [ 612, [ ""Enumeration"", ""{\""enum_name\"":\""_NT_PRODUCT_TYPE\"",\""target\"":\""UInt32\""}"" ]],
+				 ""ProductTypeIsValid"": [ 616, [ ""Byte"", ""null"" ]],
+				 ""Reserved0"": [ 617, [ ""Array"", ""{\""count\"":1,\""target\"":\""Byte\""}"" ]],
+				 ""NativeProcessorArchitecture"": [ 618, [ ""UInt16"", ""null"" ]],
+				 ""NtMajorVersion"": [ 620, [ ""UInt32"", ""null"" ]],
+				 ""NtMinorVersion"": [ 624, [ ""UInt32"", ""null"" ]],
+				 ""ProcessorFeatures"": [ 628, [ ""Array"", ""{\""count\"":64,\""target\"":\""Byte\""}"" ]],
+				 ""Reserved1"": [ 692, [ ""UInt32"", ""null"" ]],
+				 ""Reserved3"": [ 696, [ ""UInt32"", ""null"" ]],
+				 ""TimeSlip"": [ 700, [ ""UInt32"", ""null"" ]],
+				 ""AlternativeArchitecture"": [ 704, [ ""Enumeration"", ""{\""enum_name\"":\""_ALTERNATIVE_ARCHITECTURE_TYPE\"",\""target\"":\""UInt32\""}"" ]],
+				 ""BootId"": [ 708, [ ""UInt32"", ""null"" ]],
+				 ""SystemExpirationDate"": [ 712, [ ""_LARGE_INTEGER"", ""null"" ]],
+				 ""SuiteMask"": [ 720, [ ""UInt32"", ""null"" ]],
+				 ""KdDebuggerEnabled"": [ 724, [ ""Byte"", ""null"" ]],
+				 ""MitigationPolicies"": [ 725, [ ""Byte"", ""null"" ]],
+				 ""NXSupportPolicy"": [ 725, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":0,\""target\"":\""Byte\""}"" ]],
+				 ""SEHValidationPolicy"": [ 725, [ ""BitField"", ""{\""end_bit\"":4,\""start_bit\"":2,\""target\"":\""Byte\""}"" ]],
+				 ""CurDirDevicesSkippedForDlls"": [ 725, [ ""BitField"", ""{\""end_bit\"":6,\""start_bit\"":4,\""target\"":\""Byte\""}"" ]],
+				 ""Reserved"": [ 725, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":6,\""target\"":\""Byte\""}"" ]],
+				 ""Reserved6"": [ 726, [ ""Array"", ""{\""count\"":2,\""target\"":\""Byte\""}"" ]],
+				 ""ActiveConsoleId"": [ 728, [ ""UInt32"", ""null"" ]],
+				 ""DismountCount"": [ 732, [ ""UInt32"", ""null"" ]],
+				 ""ComPlusPackage"": [ 736, [ ""UInt32"", ""null"" ]],
+				 ""LastSystemRITEventTickCount"": [ 740, [ ""UInt32"", ""null"" ]],
+				 ""NumberOfPhysicalPages"": [ 744, [ ""UInt32"", ""null"" ]],
+				 ""SafeBootMode"": [ 748, [ ""Byte"", ""null"" ]],
+				 ""Reserved12"": [ 749, [ ""Array"", ""{\""count\"":3,\""target\"":\""Byte\""}"" ]],
+				 ""SharedDataFlags"": [ 752, [ ""UInt32"", ""null"" ]],
+				 ""DbgErrorPortPresent"": [ 752, [ ""BitField"", ""{\""end_bit\"":1,\""start_bit\"":0,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgElevationEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":1,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgVirtEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":3,\""start_bit\"":2,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgInstallerDetectEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":4,\""start_bit\"":3,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgLkgEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":5,\""start_bit\"":4,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgDynProcessorEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":6,\""start_bit\"":5,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgConsoleBrokerEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":7,\""start_bit\"":6,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgSecureBootEnabled"": [ 752, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":7,\""target\"":\""UInt32\""}"" ]],
+				 ""DbgMultiSessionSku"": [ 752, [ ""BitField"", ""{\""end_bit\"":9,\""start_bit\"":8,\""target\"":\""UInt32\""}"" ]],
+				 ""SpareBits"": [ 752, [ ""BitField"", ""{\""end_bit\"":32,\""start_bit\"":9,\""target\"":\""UInt32\""}"" ]],
+				 ""DataFlagsPad"": [ 756, [ ""Array"", ""{\""count\"":1,\""target\"":\""UInt32\""}"" ]],
+				 ""TestRetInstruction"": [ 760, [ ""UInt64"", ""null"" ]],
+				 ""QpcFrequency"": [ 768, [ ""Int64"", ""null"" ]],
+				 ""SystemCallPad"": [ 776, [ ""Array"", ""{\""count\"":3,\""target\"":\""UInt64\""}"" ]],
+				 ""TickCount"": [ 800, [ ""_KSYSTEM_TIME"", ""null"" ]],
+				 ""TickCountQuad"": [ 800, [ ""UInt64"", ""null"" ]],
+				 ""ReservedTickCountOverlay"": [ 800, [ ""Array"", ""{\""count\"":3,\""target\"":\""UInt32\""}"" ]],
+				 ""TickCountPad"": [ 812, [ ""Array"", ""{\""count\"":1,\""target\"":\""UInt32\""}"" ]],
+				 ""Cookie"": [ 816, [ ""UInt32"", ""null"" ]],
+				 ""CookiePad"": [ 820, [ ""Array"", ""{\""count\"":1,\""target\"":\""UInt32\""}"" ]],
+				 ""ConsoleSessionForegroundProcessId"": [ 824, [ ""Int64"", ""null"" ]],
+				 ""TimeUpdateLock"": [ 832, [ ""UInt64"", ""null"" ]],
+				 ""BaselineSystemTimeQpc"": [ 840, [ ""UInt64"", ""null"" ]],
+				 ""BaselineInterruptTimeQpc"": [ 848, [ ""UInt64"", ""null"" ]],
+				 ""QpcSystemTimeIncrement"": [ 856, [ ""UInt64"", ""null"" ]],
+				 ""QpcInterruptTimeIncrement"": [ 864, [ ""UInt64"", ""null"" ]],
+				 ""QpcSystemTimeIncrementShift"": [ 872, [ ""Byte"", ""null"" ]],
+				 ""QpcInterruptTimeIncrementShift"": [ 873, [ ""Byte"", ""null"" ]],
+				 ""UnparkedProcessorCount"": [ 874, [ ""UInt16"", ""null"" ]],
+				 ""Reserved8"": [ 876, [ ""Array"", ""{\""count\"":20,\""target\"":\""Byte\""}"" ]],
+				 ""UserModeGlobalLogger"": [ 896, [ ""Array"", ""{\""count\"":16,\""target\"":\""UInt16\""}"" ]],
+				 ""ImageFileExecutionOptions"": [ 928, [ ""UInt32"", ""null"" ]],
+				 ""LangGenerationCount"": [ 932, [ ""UInt32"", ""null"" ]],
+				 ""Reserved4"": [ 936, [ ""UInt64"", ""null"" ]],
+				 ""InterruptTimeBias"": [ 944, [ ""UInt64"", ""null"" ]],
+				 ""QpcBias"": [ 952, [ ""UInt64"", ""null"" ]],
+				 ""ActiveProcessorCount"": [ 960, [ ""UInt32"", ""null"" ]],
+				 ""ActiveGroupCount"": [ 964, [ ""Byte"", ""null"" ]],
+				 ""Reserved9"": [ 965, [ ""Byte"", ""null"" ]],
+				 ""QpcData"": [ 966, [ ""UInt16"", ""null"" ]],
+				 ""QpcBypassEnabled"": [ 966, [ ""Byte"", ""null"" ]],
+				 ""QpcShift"": [ 967, [ ""Byte"", ""null"" ]],
+				 ""TimeZoneBiasEffectiveStart"": [ 968, [ ""_LARGE_INTEGER"", ""null"" ]],
+				 ""TimeZoneBiasEffectiveEnd"": [ 976, [ ""_LARGE_INTEGER"", ""null"" ]],
+				 ""XState"": [ 984, [ ""_XSTATE_CONFIGURATION"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 TickCountLowDeprecated { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public UInt32 TickCountMultiplier { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 4); } }
+		public _KSYSTEM_TIME InterruptTime
+		{
+			get
+			{
+				_KSYSTEM_TIME returnValue = new _KSYSTEM_TIME(_StructureData, _BufferOffset + 8);
+				return returnValue;
+			}
+		}
+		public _KSYSTEM_TIME SystemTime
+		{
+			get
+			{
+				_KSYSTEM_TIME returnValue = new _KSYSTEM_TIME(_StructureData, _BufferOffset + 20);
+				return returnValue;
+			}
+		}
+		public _KSYSTEM_TIME TimeZoneBias
+		{
+			get
+			{
+				_KSYSTEM_TIME returnValue = new _KSYSTEM_TIME(_StructureData, _BufferOffset + 32);
+				return returnValue;
+			}
+		}
+		public UInt16 ImageNumberLow { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 44); } }
+		public UInt16 ImageNumberHigh { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 46); } }
+		public UInt16[] NtSystemRoot
+		{
+			get
+			{
+				UInt16[] returnValue = new UInt16[260];
+				for(int i=0; i<260; i++ )
+					returnValue[i] = BitConverter.ToUInt16(_StructureData, (i * sizeof(UInt16)) + _BufferOffset + 48);
+				return returnValue;
+			}
+		}
+		public UInt32 MaxStackTraceDepth { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 568); } }
+		public UInt32 CryptoExponent { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 572); } }
+		public UInt32 TimeZoneId { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 576); } }
+		public UInt32 LargePageMinimum { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 580); } }
+		public UInt32 AitSamplingValue { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 584); } }
+		public UInt32 AppCompatFlag { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 588); } }
+		public UInt64 RNGSeedVersion { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 592); } }
+		public UInt32 GlobalValidationRunlevel { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 600); } }
+		public Int32 TimeZoneBiasStamp { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 604); } }
+		public UInt32 NtBuildNumber { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 608); } }
+		public _NT_PRODUCT_TYPE NtProductType { get { return (_NT_PRODUCT_TYPE)BitConverter.ToUInt32(_StructureData, _BufferOffset + 612); } }
+		public Byte ProductTypeIsValid{ get { return _StructureData[_BufferOffset +616]; } }
+		public Byte[] Reserved0
+		{
+			get
+			{
+				Byte[] returnValue = new Byte[1];
+				for(int i=0; i<1; i++ )
+					returnValue[i] = _StructureData[i + _BufferOffset + 617];
+				return returnValue;
+			}
+		}
+		public UInt16 NativeProcessorArchitecture { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 618); } }
+		public UInt32 NtMajorVersion { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 620); } }
+		public UInt32 NtMinorVersion { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 624); } }
+		public Byte[] ProcessorFeatures
+		{
+			get
+			{
+				Byte[] returnValue = new Byte[64];
+				for(int i=0; i<64; i++ )
+					returnValue[i] = _StructureData[i + _BufferOffset + 628];
+				return returnValue;
+			}
+		}
+		public UInt32 Reserved1 { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 692); } }
+		public UInt32 Reserved3 { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 696); } }
+		public UInt32 TimeSlip { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 700); } }
+		public _ALTERNATIVE_ARCHITECTURE_TYPE AlternativeArchitecture { get { return (_ALTERNATIVE_ARCHITECTURE_TYPE)BitConverter.ToUInt32(_StructureData, _BufferOffset + 704); } }
+		public UInt32 BootId { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 708); } }
+		public _LARGE_INTEGER SystemExpirationDate
+		{
+			get
+			{
+				_LARGE_INTEGER returnValue = new _LARGE_INTEGER(_StructureData, _BufferOffset + 712);
+				return returnValue;
+			}
+		}
+		public UInt32 SuiteMask { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 720); } }
+		public Byte KdDebuggerEnabled{ get { return _StructureData[_BufferOffset +724]; } }
+		public Byte MitigationPolicies{ get { return _StructureData[_BufferOffset +725]; } }
+		public Byte NXSupportPolicy
+		{
+			get
+			{
+				// start: 0  end: 2  Mask: 0000000000000011
+				Byte value = _StructureData[_BufferOffset + 725];
+				var value2 = (value & 3) >> 0;
+				return (Byte)value2;
+			}
+		}
+		public Byte SEHValidationPolicy
+		{
+			get
+			{
+				// start: 2  end: 4  Mask: 0000000000001100
+				Byte value = _StructureData[_BufferOffset + 725];
+				var value2 = (value & 12) >> 2;
+				return (Byte)value2;
+			}
+		}
+		public Byte CurDirDevicesSkippedForDlls
+		{
+			get
+			{
+				// start: 4  end: 6  Mask: 0000000000110000
+				Byte value = _StructureData[_BufferOffset + 725];
+				var value2 = (value & 48) >> 4;
+				return (Byte)value2;
+			}
+		}
+		public Byte Reserved
+		{
+			get
+			{
+				// start: 6  end: 8  Mask: 0000000011000000
+				Byte value = _StructureData[_BufferOffset + 725];
+				var value2 = (value & 192) >> 6;
+				return (Byte)value2;
+			}
+		}
+		public Byte[] Reserved6
+		{
+			get
+			{
+				Byte[] returnValue = new Byte[2];
+				for(int i=0; i<2; i++ )
+					returnValue[i] = _StructureData[i + _BufferOffset + 726];
+				return returnValue;
+			}
+		}
+		public UInt32 ActiveConsoleId { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 728); } }
+		public UInt32 DismountCount { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 732); } }
+		public UInt32 ComPlusPackage { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 736); } }
+		public UInt32 LastSystemRITEventTickCount { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 740); } }
+		public UInt32 NumberOfPhysicalPages { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 744); } }
+		public Byte SafeBootMode{ get { return _StructureData[_BufferOffset +748]; } }
+		public Byte[] Reserved12
+		{
+			get
+			{
+				Byte[] returnValue = new Byte[3];
+				for(int i=0; i<3; i++ )
+					returnValue[i] = _StructureData[i + _BufferOffset + 749];
+				return returnValue;
+			}
+		}
+		public UInt32 SharedDataFlags { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 752); } }
+		public UInt32 DbgErrorPortPresent
+		{
+			get
+			{
+				// start: 0  end: 1  Mask: 0000000000000001
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 1) >> 0;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgElevationEnabled
+		{
+			get
+			{
+				// start: 1  end: 2  Mask: 0000000000000010
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 2) >> 1;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgVirtEnabled
+		{
+			get
+			{
+				// start: 2  end: 3  Mask: 0000000000000100
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 4) >> 2;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgInstallerDetectEnabled
+		{
+			get
+			{
+				// start: 3  end: 4  Mask: 0000000000001000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 8) >> 3;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgLkgEnabled
+		{
+			get
+			{
+				// start: 4  end: 5  Mask: 0000000000010000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 16) >> 4;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgDynProcessorEnabled
+		{
+			get
+			{
+				// start: 5  end: 6  Mask: 0000000000100000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 32) >> 5;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgConsoleBrokerEnabled
+		{
+			get
+			{
+				// start: 6  end: 7  Mask: 0000000001000000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 64) >> 6;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgSecureBootEnabled
+		{
+			get
+			{
+				// start: 7  end: 8  Mask: 0000000010000000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 128) >> 7;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 DbgMultiSessionSku
+		{
+			get
+			{
+				// start: 8  end: 9  Mask: 0000000100000000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 256) >> 8;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 SpareBits
+		{
+			get
+			{
+				// start: 9  end: 32  Mask: 11111111111111111111111000000000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 752);
+				var value2 = (value & 4294966784) >> 9;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32[] DataFlagsPad
+		{
+			get
+			{
+				UInt32[] returnValue = new UInt32[1];
+				for(int i=0; i<1; i++ )
+					returnValue[i] = BitConverter.ToUInt32(_StructureData, (i * sizeof(UInt32)) + _BufferOffset + 756);
+				return returnValue;
+			}
+		}
+		public UInt64 TestRetInstruction { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 760); } }
+		public Int64 QpcFrequency { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 768); } }
+		public UInt64[] SystemCallPad
+		{
+			get
+			{
+				UInt64[] returnValue = new UInt64[3];
+				for(int i=0; i<3; i++ )
+					returnValue[i] = BitConverter.ToUInt64(_StructureData, (i * sizeof(UInt64)) + _BufferOffset + 776);
+				return returnValue;
+			}
+		}
+		public _KSYSTEM_TIME TickCount
+		{
+			get
+			{
+				_KSYSTEM_TIME returnValue = new _KSYSTEM_TIME(_StructureData, _BufferOffset + 800);
+				return returnValue;
+			}
+		}
+		public UInt64 TickCountQuad { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 800); } }
+		public UInt32[] ReservedTickCountOverlay
+		{
+			get
+			{
+				UInt32[] returnValue = new UInt32[3];
+				for(int i=0; i<3; i++ )
+					returnValue[i] = BitConverter.ToUInt32(_StructureData, (i * sizeof(UInt32)) + _BufferOffset + 800);
+				return returnValue;
+			}
+		}
+		public UInt32[] TickCountPad
+		{
+			get
+			{
+				UInt32[] returnValue = new UInt32[1];
+				for(int i=0; i<1; i++ )
+					returnValue[i] = BitConverter.ToUInt32(_StructureData, (i * sizeof(UInt32)) + _BufferOffset + 812);
+				return returnValue;
+			}
+		}
+		public UInt32 Cookie { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 816); } }
+		public UInt32[] CookiePad
+		{
+			get
+			{
+				UInt32[] returnValue = new UInt32[1];
+				for(int i=0; i<1; i++ )
+					returnValue[i] = BitConverter.ToUInt32(_StructureData, (i * sizeof(UInt32)) + _BufferOffset + 820);
+				return returnValue;
+			}
+		}
+		public Int64 ConsoleSessionForegroundProcessId { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 824); } }
+		public UInt64 TimeUpdateLock { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 832); } }
+		public UInt64 BaselineSystemTimeQpc { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 840); } }
+		public UInt64 BaselineInterruptTimeQpc { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 848); } }
+		public UInt64 QpcSystemTimeIncrement { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 856); } }
+		public UInt64 QpcInterruptTimeIncrement { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 864); } }
+		public Byte QpcSystemTimeIncrementShift{ get { return _StructureData[_BufferOffset +872]; } }
+		public Byte QpcInterruptTimeIncrementShift{ get { return _StructureData[_BufferOffset +873]; } }
+		public UInt16 UnparkedProcessorCount { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 874); } }
+		public Byte[] Reserved8
+		{
+			get
+			{
+				Byte[] returnValue = new Byte[20];
+				for(int i=0; i<20; i++ )
+					returnValue[i] = _StructureData[i + _BufferOffset + 876];
+				return returnValue;
+			}
+		}
+		public UInt16[] UserModeGlobalLogger
+		{
+			get
+			{
+				UInt16[] returnValue = new UInt16[16];
+				for(int i=0; i<16; i++ )
+					returnValue[i] = BitConverter.ToUInt16(_StructureData, (i * sizeof(UInt16)) + _BufferOffset + 896);
+				return returnValue;
+			}
+		}
+		public UInt32 ImageFileExecutionOptions { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 928); } }
+		public UInt32 LangGenerationCount { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 932); } }
+		public UInt64 Reserved4 { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 936); } }
+		public UInt64 InterruptTimeBias { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 944); } }
+		public UInt64 QpcBias { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 952); } }
+		public UInt32 ActiveProcessorCount { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 960); } }
+		public Byte ActiveGroupCount{ get { return _StructureData[_BufferOffset +964]; } }
+		public Byte Reserved9{ get { return _StructureData[_BufferOffset +965]; } }
+		public UInt16 QpcData { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 966); } }
+		public Byte QpcBypassEnabled{ get { return _StructureData[_BufferOffset +966]; } }
+		public Byte QpcShift{ get { return _StructureData[_BufferOffset +967]; } }
+		public _LARGE_INTEGER TimeZoneBiasEffectiveStart
+		{
+			get
+			{
+				_LARGE_INTEGER returnValue = new _LARGE_INTEGER(_StructureData, _BufferOffset + 968);
+				return returnValue;
+			}
+		}
+		public _LARGE_INTEGER TimeZoneBiasEffectiveEnd
+		{
+			get
+			{
+				_LARGE_INTEGER returnValue = new _LARGE_INTEGER(_StructureData, _BufferOffset + 976);
+				return returnValue;
+			}
+		}
+		public _XSTATE_CONFIGURATION XState
+		{
+			get
+			{
+				_XSTATE_CONFIGURATION returnValue = new _XSTATE_CONFIGURATION(_StructureData, _BufferOffset + 984);
+				return returnValue;
+			}
+		}
+	}
+	#endregion
+	#region _OBJECT_TYPE
+ 
+	public class _OBJECT_TYPE
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_TYPE(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 216; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_TYPE"": [ 216, {
+				 ""TypeList"": [ 0, [ ""_LIST_ENTRY"", ""null"" ]],
+				 ""Name"": [ 16, [ ""_UNICODE_STRING"", ""null"" ]],
+				 ""DefaultObject"": [ 32, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Index"": [ 40, [ ""Byte"", ""null"" ]],
+				 ""TotalNumberOfObjects"": [ 44, [ ""UInt32"", ""null"" ]],
+				 ""TotalNumberOfHandles"": [ 48, [ ""UInt32"", ""null"" ]],
+				 ""HighWaterNumberOfObjects"": [ 52, [ ""UInt32"", ""null"" ]],
+				 ""HighWaterNumberOfHandles"": [ 56, [ ""UInt32"", ""null"" ]],
+				 ""TypeInfo"": [ 64, [ ""_OBJECT_TYPE_INITIALIZER"", ""null"" ]],
+				 ""TypeLock"": [ 184, [ ""_EX_PUSH_LOCK"", ""null"" ]],
+				 ""Key"": [ 192, [ ""UInt32"", ""null"" ]],
+				 ""CallbackList"": [ 200, [ ""_LIST_ENTRY"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public _LIST_ENTRY TypeList
+		{
+			get
+			{
+				_LIST_ENTRY returnValue = new _LIST_ENTRY(_StructureData, _BufferOffset + 0);
+				return returnValue;
+			}
+		}
+		public _UNICODE_STRING Name
+		{
+			get
+			{
+				_UNICODE_STRING returnValue = new _UNICODE_STRING(_StructureData, _BufferOffset + 16);
+				return returnValue;
+			}
+		}
+		public UInt64 DefaultObject { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 32); } }
+		public Byte Index{ get { return _StructureData[_BufferOffset +40]; } }
+		public UInt32 TotalNumberOfObjects { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 44); } }
+		public UInt32 TotalNumberOfHandles { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 48); } }
+		public UInt32 HighWaterNumberOfObjects { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 52); } }
+		public UInt32 HighWaterNumberOfHandles { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 56); } }
+		public _OBJECT_TYPE_INITIALIZER TypeInfo
+		{
+			get
+			{
+				_OBJECT_TYPE_INITIALIZER returnValue = new _OBJECT_TYPE_INITIALIZER(_StructureData, _BufferOffset + 64);
+				return returnValue;
+			}
+		}
+		public _EX_PUSH_LOCK TypeLock
+		{
+			get
+			{
+				_EX_PUSH_LOCK returnValue = new _EX_PUSH_LOCK(_StructureData, _BufferOffset + 184);
+				return returnValue;
+			}
+		}
+		public UInt32 Key { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 192); } }
+		public _LIST_ENTRY CallbackList
+		{
+			get
+			{
+				_LIST_ENTRY returnValue = new _LIST_ENTRY(_StructureData, _BufferOffset + 200);
+				return returnValue;
+			}
+		}
+	}
+	#endregion
+	#region _OBJECT_HEADER
+ 
+	public class _OBJECT_HEADER
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 56; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER"": [ 56, {
+				 ""PointerCount"": [ 0, [ ""Int64"", ""null"" ]],
+				 ""HandleCount"": [ 8, [ ""Int64"", ""null"" ]],
+				 ""NextToFree"": [ 8, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Lock"": [ 16, [ ""_EX_PUSH_LOCK"", ""null"" ]],
+				 ""TypeIndex"": [ 24, [ ""Byte"", ""null"" ]],
+				 ""TraceFlags"": [ 25, [ ""Byte"", ""null"" ]],
+				 ""DbgRefTrace"": [ 25, [ ""BitField"", ""{\""end_bit\"":1,\""start_bit\"":0,\""target\"":\""Byte\""}"" ]],
+				 ""DbgTracePermanent"": [ 25, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":1,\""target\"":\""Byte\""}"" ]],
+				 ""InfoMask"": [ 26, [ ""Byte"", ""null"" ]],
+				 ""Flags"": [ 27, [ ""Byte"", ""null"" ]],
+				 ""NewObject"": [ 27, [ ""BitField"", ""{\""end_bit\"":1,\""start_bit\"":0,\""target\"":\""Byte\""}"" ]],
+				 ""KernelObject"": [ 27, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":1,\""target\"":\""Byte\""}"" ]],
+				 ""KernelOnlyAccess"": [ 27, [ ""BitField"", ""{\""end_bit\"":3,\""start_bit\"":2,\""target\"":\""Byte\""}"" ]],
+				 ""ExclusiveObject"": [ 27, [ ""BitField"", ""{\""end_bit\"":4,\""start_bit\"":3,\""target\"":\""Byte\""}"" ]],
+				 ""PermanentObject"": [ 27, [ ""BitField"", ""{\""end_bit\"":5,\""start_bit\"":4,\""target\"":\""Byte\""}"" ]],
+				 ""DefaultSecurityQuota"": [ 27, [ ""BitField"", ""{\""end_bit\"":6,\""start_bit\"":5,\""target\"":\""Byte\""}"" ]],
+				 ""SingleHandleEntry"": [ 27, [ ""BitField"", ""{\""end_bit\"":7,\""start_bit\"":6,\""target\"":\""Byte\""}"" ]],
+				 ""DeletedInline"": [ 27, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":7,\""target\"":\""Byte\""}"" ]],
+				 ""Spare"": [ 28, [ ""UInt32"", ""null"" ]],
+				 ""ObjectCreateInfo"": [ 32, [ ""Pointer"", ""{\""target\"":\""_OBJECT_CREATE_INFORMATION\""}"" ]],
+				 ""QuotaBlockCharged"": [ 32, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""SecurityDescriptor"": [ 40, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Body"": [ 48, [ ""_QUAD"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public Int64 PointerCount { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 0); } }
+		public Int64 HandleCount { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 8); } }
+		public UInt64 NextToFree { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+		public _EX_PUSH_LOCK Lock
+		{
+			get
+			{
+				_EX_PUSH_LOCK returnValue = new _EX_PUSH_LOCK(_StructureData, _BufferOffset + 16);
+				return returnValue;
+			}
+		}
+		public Byte TypeIndex{ get { return _StructureData[_BufferOffset +24]; } }
+		public Byte TraceFlags{ get { return _StructureData[_BufferOffset +25]; } }
+		public Byte DbgRefTrace
+		{
+			get
+			{
+				// start: 0  end: 1  Mask: 0000000000000001
+				Byte value = _StructureData[_BufferOffset + 25];
+				var value2 = (value & 1) >> 0;
+				return (Byte)value2;
+			}
+		}
+		public Byte DbgTracePermanent
+		{
+			get
+			{
+				// start: 1  end: 2  Mask: 0000000000000010
+				Byte value = _StructureData[_BufferOffset + 25];
+				var value2 = (value & 2) >> 1;
+				return (Byte)value2;
+			}
+		}
+		public Byte InfoMask{ get { return _StructureData[_BufferOffset +26]; } }
+		public Byte Flags{ get { return _StructureData[_BufferOffset +27]; } }
+		public Byte NewObject
+		{
+			get
+			{
+				// start: 0  end: 1  Mask: 0000000000000001
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 1) >> 0;
+				return (Byte)value2;
+			}
+		}
+		public Byte KernelObject
+		{
+			get
+			{
+				// start: 1  end: 2  Mask: 0000000000000010
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 2) >> 1;
+				return (Byte)value2;
+			}
+		}
+		public Byte KernelOnlyAccess
+		{
+			get
+			{
+				// start: 2  end: 3  Mask: 0000000000000100
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 4) >> 2;
+				return (Byte)value2;
+			}
+		}
+		public Byte ExclusiveObject
+		{
+			get
+			{
+				// start: 3  end: 4  Mask: 0000000000001000
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 8) >> 3;
+				return (Byte)value2;
+			}
+		}
+		public Byte PermanentObject
+		{
+			get
+			{
+				// start: 4  end: 5  Mask: 0000000000010000
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 16) >> 4;
+				return (Byte)value2;
+			}
+		}
+		public Byte DefaultSecurityQuota
+		{
+			get
+			{
+				// start: 5  end: 6  Mask: 0000000000100000
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 32) >> 5;
+				return (Byte)value2;
+			}
+		}
+		public Byte SingleHandleEntry
+		{
+			get
+			{
+				// start: 6  end: 7  Mask: 0000000001000000
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 64) >> 6;
+				return (Byte)value2;
+			}
+		}
+		public Byte DeletedInline
+		{
+			get
+			{
+				// start: 7  end: 8  Mask: 0000000010000000
+				Byte value = _StructureData[_BufferOffset + 27];
+				var value2 = (value & 128) >> 7;
+				return (Byte)value2;
+			}
+		}
+		public UInt32 Spare { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 28); } }
+		public UInt64 ObjectCreateInfo { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 32); } }
+		public UInt64 QuotaBlockCharged { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 32); } }
+		public UInt64 SecurityDescriptor { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 40); } }
+		public _QUAD Body
+		{
+			get
+			{
+				_QUAD returnValue = new _QUAD(_StructureData, _BufferOffset + 48);
+				return returnValue;
+			}
+		}
+	}
+	#endregion
+	#region _OBJECT_DIRECTORY_ENTRY
+ 
+	public class _OBJECT_DIRECTORY_ENTRY
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_DIRECTORY_ENTRY(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 24; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_DIRECTORY_ENTRY"": [ 24, {
+				 ""ChainLink"": [ 0, [ ""Pointer"", ""{\""target\"":\""_OBJECT_DIRECTORY_ENTRY\""}"" ]],
+				 ""Object"": [ 8, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""HashValue"": [ 16, [ ""UInt32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 ChainLink { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public UInt64 Object { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+		public UInt32 HashValue { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 16); } }
+	}
+	#endregion
+	#region _OBJECT_DIRECTORY
+ 
+	public class _OBJECT_DIRECTORY
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_DIRECTORY(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 344; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_DIRECTORY"": [ 344, {
+				 ""HashBuckets"": [ 0, [ ""Array"", ""{\""count\"":37,\""target\"":\""Pointer\"",\""target_args\"":{\""target\"":\""_OBJECT_DIRECTORY_ENTRY\""}}"" ]],
+				 ""Lock"": [ 296, [ ""_EX_PUSH_LOCK"", ""null"" ]],
+				 ""DeviceMap"": [ 304, [ ""Pointer"", ""{\""target\"":\""_DEVICE_MAP\""}"" ]],
+				 ""ShadowDirectory"": [ 312, [ ""Pointer"", ""{\""target\"":\""_OBJECT_DIRECTORY\""}"" ]],
+				 ""SessionId"": [ 320, [ ""UInt32"", ""null"" ]],
+				 ""NamespaceEntry"": [ 328, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Flags"": [ 336, [ ""UInt32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64[] HashBuckets
+		{
+			get
+			{
+				UInt64[] returnValue = new UInt64[37];
+				int size = 8;
+				for(int i=0; i<37; i++ )
+					returnValue[i] = BitConverter.ToUInt64(_StructureData, (i * size) + _BufferOffset + 0);
+				return returnValue;
+			}
+		}
+		public _EX_PUSH_LOCK Lock
+		{
+			get
+			{
+				_EX_PUSH_LOCK returnValue = new _EX_PUSH_LOCK(_StructureData, _BufferOffset + 296);
+				return returnValue;
+			}
+		}
+		public UInt64 DeviceMap { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 304); } }
+		public UInt64 ShadowDirectory { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 312); } }
+		public UInt32 SessionId { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 320); } }
+		public UInt64 NamespaceEntry { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 328); } }
+		public UInt32 Flags { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 336); } }
+	}
+	#endregion
 	#region _KPROCESS
  
 	public class _KPROCESS
@@ -1788,7 +2633,7 @@ namespace LiveForensics.Symbols
 				 ""_LARGE_INTEGER"": [ 8, {
 				 ""LowPart"": [ 0, [ ""UInt32"", ""null"" ]],
 				 ""HighPart"": [ 4, [ ""Int32"", ""null"" ]],
-				 ""u"": [ 0, [ ""_UNNAMED_29801"", ""null"" ]],
+				 ""u"": [ 0, [ ""_UNNAMED_29969"", ""null"" ]],
 				 ""QuadPart"": [ 0, [ ""Int64"", ""null"" ]] }]
 				 }
 				)";
@@ -1796,24 +2641,24 @@ namespace LiveForensics.Symbols
 		}
 		public UInt32 LowPart { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
 		public Int32 HighPart { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 4); } }
-		public _UNNAMED_29801 u
+		public _UNNAMED_29969 u
 		{
 			get
 			{
-				_UNNAMED_29801 returnValue = new _UNNAMED_29801(_StructureData, _BufferOffset + 0);
+				_UNNAMED_29969 returnValue = new _UNNAMED_29969(_StructureData, _BufferOffset + 0);
 				return returnValue;
 			}
 		}
 		public Int64 QuadPart { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 0); } }
 	}
 	#endregion
-	#region _UNNAMED_29801
+	#region _UNNAMED_29969
  
-	public class _UNNAMED_29801
+	public class _UNNAMED_29969
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_29801(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_29969(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -1825,7 +2670,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_29801"": [ 8, {
+				 ""_UNNAMED_29969"": [ 8, {
 				 ""LowPart"": [ 0, [ ""UInt32"", ""null"" ]],
 				 ""HighPart"": [ 4, [ ""Int32"", ""null"" ]] }]
 				 }
@@ -2137,6 +2982,341 @@ namespace LiveForensics.Symbols
 				return (Byte)value2;
 			}
 		}
+	}
+	#endregion
+	#region _KSYSTEM_TIME
+ 
+	public class _KSYSTEM_TIME
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _KSYSTEM_TIME(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 12; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_KSYSTEM_TIME"": [ 12, {
+				 ""LowPart"": [ 0, [ ""UInt32"", ""null"" ]],
+				 ""High1Time"": [ 4, [ ""Int32"", ""null"" ]],
+				 ""High2Time"": [ 8, [ ""Int32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 LowPart { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public Int32 High1Time { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 4); } }
+		public Int32 High2Time { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 8); } }
+	}
+	#endregion
+	#region _XSTATE_CONFIGURATION
+ 
+	public class _XSTATE_CONFIGURATION
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _XSTATE_CONFIGURATION(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 816; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_XSTATE_CONFIGURATION"": [ 816, {
+				 ""EnabledFeatures"": [ 0, [ ""UInt64"", ""null"" ]],
+				 ""EnabledVolatileFeatures"": [ 8, [ ""UInt64"", ""null"" ]],
+				 ""Size"": [ 16, [ ""UInt32"", ""null"" ]],
+				 ""OptimizedSave"": [ 20, [ ""BitField"", ""{\""end_bit\"":1,\""start_bit\"":0,\""target\"":\""UInt32\""}"" ]],
+				 ""CompactionEnabled"": [ 20, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":1,\""target\"":\""UInt32\""}"" ]],
+				 ""Features"": [ 24, [ ""Array"", ""{\""count\"":64,\""target\"":\""Pointer\"",\""target_args\"":{\""target\"":\""\""}}"" ]],
+				 ""EnabledSupervisorFeatures"": [ 536, [ ""UInt64"", ""null"" ]],
+				 ""AlignedFeatures"": [ 544, [ ""UInt64"", ""null"" ]],
+				 ""AllFeatureSize"": [ 552, [ ""UInt32"", ""null"" ]],
+				 ""AllFeatures"": [ 556, [ ""Array"", ""{\""count\"":64,\""target\"":\""UInt32\""}"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 EnabledFeatures { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public UInt64 EnabledVolatileFeatures { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+		public UInt32 Size { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 16); } }
+		public UInt32 OptimizedSave
+		{
+			get
+			{
+				// start: 0  end: 1  Mask: 0000000000000001
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 20);
+				var value2 = (value & 1) >> 0;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 CompactionEnabled
+		{
+			get
+			{
+				// start: 1  end: 2  Mask: 0000000000000010
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 20);
+				var value2 = (value & 2) >> 1;
+				return (UInt32)value2;
+			}
+		}
+		public _XSTATE_FEATURE[] Features
+		{
+			get
+			{
+				_XSTATE_FEATURE[] returnValue = new _XSTATE_FEATURE[64];
+				int size = returnValue[0].MxStructureSize;
+				for(int i=0; i<64; i++ )
+					returnValue[i] = new _XSTATE_FEATURE(_StructureData, (i * size) + _BufferOffset + 24);
+				return returnValue;
+			}
+		}
+		public UInt64 EnabledSupervisorFeatures { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 536); } }
+		public UInt64 AlignedFeatures { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 544); } }
+		public UInt32 AllFeatureSize { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 552); } }
+		public UInt32[] AllFeatures
+		{
+			get
+			{
+				UInt32[] returnValue = new UInt32[64];
+				for(int i=0; i<64; i++ )
+					returnValue[i] = BitConverter.ToUInt32(_StructureData, (i * sizeof(UInt32)) + _BufferOffset + 556);
+				return returnValue;
+			}
+		}
+	}
+	#endregion
+	#region _UNICODE_STRING
+ 
+	public class _UNICODE_STRING
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _UNICODE_STRING(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_UNICODE_STRING"": [ 16, {
+				 ""Length"": [ 0, [ ""UInt16"", ""null"" ]],
+				 ""MaximumLength"": [ 2, [ ""UInt16"", ""null"" ]],
+				 ""Buffer"": [ 8, [ ""Pointer"", ""{\""target\"":\""UInt16\""}"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt16 Length { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 0); } }
+		public UInt16 MaximumLength { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 2); } }
+		public UInt64 Buffer { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+	}
+	#endregion
+	#region _OBJECT_TYPE_INITIALIZER
+ 
+	public class _OBJECT_TYPE_INITIALIZER
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_TYPE_INITIALIZER(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 120; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_TYPE_INITIALIZER"": [ 120, {
+				 ""Length"": [ 0, [ ""UInt16"", ""null"" ]],
+				 ""ObjectTypeFlags"": [ 2, [ ""Byte"", ""null"" ]],
+				 ""CaseInsensitive"": [ 2, [ ""BitField"", ""{\""end_bit\"":1,\""start_bit\"":0,\""target\"":\""Byte\""}"" ]],
+				 ""UnnamedObjectsOnly"": [ 2, [ ""BitField"", ""{\""end_bit\"":2,\""start_bit\"":1,\""target\"":\""Byte\""}"" ]],
+				 ""UseDefaultObject"": [ 2, [ ""BitField"", ""{\""end_bit\"":3,\""start_bit\"":2,\""target\"":\""Byte\""}"" ]],
+				 ""SecurityRequired"": [ 2, [ ""BitField"", ""{\""end_bit\"":4,\""start_bit\"":3,\""target\"":\""Byte\""}"" ]],
+				 ""MaintainHandleCount"": [ 2, [ ""BitField"", ""{\""end_bit\"":5,\""start_bit\"":4,\""target\"":\""Byte\""}"" ]],
+				 ""MaintainTypeList"": [ 2, [ ""BitField"", ""{\""end_bit\"":6,\""start_bit\"":5,\""target\"":\""Byte\""}"" ]],
+				 ""SupportsObjectCallbacks"": [ 2, [ ""BitField"", ""{\""end_bit\"":7,\""start_bit\"":6,\""target\"":\""Byte\""}"" ]],
+				 ""CacheAligned"": [ 2, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":7,\""target\"":\""Byte\""}"" ]],
+				 ""ObjectTypeCode"": [ 4, [ ""UInt32"", ""null"" ]],
+				 ""InvalidAttributes"": [ 8, [ ""UInt32"", ""null"" ]],
+				 ""GenericMapping"": [ 12, [ ""_GENERIC_MAPPING"", ""null"" ]],
+				 ""ValidAccessMask"": [ 28, [ ""UInt32"", ""null"" ]],
+				 ""RetainAccess"": [ 32, [ ""UInt32"", ""null"" ]],
+				 ""PoolType"": [ 36, [ ""Enumeration"", ""{\""enum_name\"":\""_POOL_TYPE\"",\""target\"":\""UInt32\""}"" ]],
+				 ""DefaultPagedPoolCharge"": [ 40, [ ""UInt32"", ""null"" ]],
+				 ""DefaultNonPagedPoolCharge"": [ 44, [ ""UInt32"", ""null"" ]],
+				 ""DumpProcedure"": [ 48, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""OpenProcedure"": [ 56, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""CloseProcedure"": [ 64, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""DeleteProcedure"": [ 72, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""ParseProcedure"": [ 80, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""SecurityProcedure"": [ 88, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""QueryNameProcedure"": [ 96, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""OkayToCloseProcedure"": [ 104, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""WaitObjectFlagMask"": [ 112, [ ""UInt32"", ""null"" ]],
+				 ""WaitObjectFlagOffset"": [ 116, [ ""UInt16"", ""null"" ]],
+				 ""WaitObjectPointerOffset"": [ 118, [ ""UInt16"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt16 Length { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 0); } }
+		public Byte ObjectTypeFlags{ get { return _StructureData[_BufferOffset +2]; } }
+		public Byte CaseInsensitive
+		{
+			get
+			{
+				// start: 0  end: 1  Mask: 0000000000000001
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 1) >> 0;
+				return (Byte)value2;
+			}
+		}
+		public Byte UnnamedObjectsOnly
+		{
+			get
+			{
+				// start: 1  end: 2  Mask: 0000000000000010
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 2) >> 1;
+				return (Byte)value2;
+			}
+		}
+		public Byte UseDefaultObject
+		{
+			get
+			{
+				// start: 2  end: 3  Mask: 0000000000000100
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 4) >> 2;
+				return (Byte)value2;
+			}
+		}
+		public Byte SecurityRequired
+		{
+			get
+			{
+				// start: 3  end: 4  Mask: 0000000000001000
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 8) >> 3;
+				return (Byte)value2;
+			}
+		}
+		public Byte MaintainHandleCount
+		{
+			get
+			{
+				// start: 4  end: 5  Mask: 0000000000010000
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 16) >> 4;
+				return (Byte)value2;
+			}
+		}
+		public Byte MaintainTypeList
+		{
+			get
+			{
+				// start: 5  end: 6  Mask: 0000000000100000
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 32) >> 5;
+				return (Byte)value2;
+			}
+		}
+		public Byte SupportsObjectCallbacks
+		{
+			get
+			{
+				// start: 6  end: 7  Mask: 0000000001000000
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 64) >> 6;
+				return (Byte)value2;
+			}
+		}
+		public Byte CacheAligned
+		{
+			get
+			{
+				// start: 7  end: 8  Mask: 0000000010000000
+				Byte value = _StructureData[_BufferOffset + 2];
+				var value2 = (value & 128) >> 7;
+				return (Byte)value2;
+			}
+		}
+		public UInt32 ObjectTypeCode { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 4); } }
+		public UInt32 InvalidAttributes { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 8); } }
+		public _GENERIC_MAPPING GenericMapping
+		{
+			get
+			{
+				_GENERIC_MAPPING returnValue = new _GENERIC_MAPPING(_StructureData, _BufferOffset + 12);
+				return returnValue;
+			}
+		}
+		public UInt32 ValidAccessMask { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 28); } }
+		public UInt32 RetainAccess { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 32); } }
+		public _POOL_TYPE PoolType { get { return (_POOL_TYPE)BitConverter.ToUInt32(_StructureData, _BufferOffset + 36); } }
+		public UInt32 DefaultPagedPoolCharge { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 40); } }
+		public UInt32 DefaultNonPagedPoolCharge { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 44); } }
+		public UInt64 DumpProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 48); } }
+		public UInt64 OpenProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 56); } }
+		public UInt64 CloseProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 64); } }
+		public UInt64 DeleteProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 72); } }
+		public UInt64 ParseProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 80); } }
+		public UInt64 SecurityProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 88); } }
+		public UInt64 QueryNameProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 96); } }
+		public UInt64 OkayToCloseProcedure { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 104); } }
+		public UInt32 WaitObjectFlagMask { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 112); } }
+		public UInt16 WaitObjectFlagOffset { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 116); } }
+		public UInt16 WaitObjectPointerOffset { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 118); } }
+	}
+	#endregion
+	#region _QUAD
+ 
+	public class _QUAD
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _QUAD(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_QUAD"": [ 8, {
+				 ""UseThisFieldToCopy"": [ 0, [ ""Int64"", ""null"" ]],
+				 ""DoNotUseThisField"": [ 0, [ ""Double"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public Int64 UseThisFieldToCopy { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 0); } }
+		public Double DoNotUseThisField { get { return BitConverter.ToDouble(_StructureData, _BufferOffset + 0); } }
 	}
 	#endregion
 	#region _DISPATCHER_HEADER
@@ -2802,8 +3982,8 @@ namespace LiveForensics.Symbols
 				 ""_KGDTENTRY64"": [ 16, {
 				 ""LimitLow"": [ 0, [ ""UInt16"", ""null"" ]],
 				 ""BaseLow"": [ 2, [ ""UInt16"", ""null"" ]],
-				 ""Bytes"": [ 4, [ ""_UNNAMED_29938"", ""null"" ]],
-				 ""Bits"": [ 4, [ ""_UNNAMED_29940"", ""null"" ]],
+				 ""Bytes"": [ 4, [ ""_UNNAMED_30174"", ""null"" ]],
+				 ""Bits"": [ 4, [ ""_UNNAMED_30176"", ""null"" ]],
 				 ""BaseUpper"": [ 8, [ ""UInt32"", ""null"" ]],
 				 ""MustBeZero"": [ 12, [ ""UInt32"", ""null"" ]],
 				 ""DataLow"": [ 0, [ ""Int64"", ""null"" ]],
@@ -2814,19 +3994,19 @@ namespace LiveForensics.Symbols
 		}
 		public UInt16 LimitLow { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 0); } }
 		public UInt16 BaseLow { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 2); } }
-		public _UNNAMED_29938 Bytes
+		public _UNNAMED_30174 Bytes
 		{
 			get
 			{
-				_UNNAMED_29938 returnValue = new _UNNAMED_29938(_StructureData, _BufferOffset + 4);
+				_UNNAMED_30174 returnValue = new _UNNAMED_30174(_StructureData, _BufferOffset + 4);
 				return returnValue;
 			}
 		}
-		public _UNNAMED_29940 Bits
+		public _UNNAMED_30176 Bits
 		{
 			get
 			{
-				_UNNAMED_29940 returnValue = new _UNNAMED_29940(_StructureData, _BufferOffset + 4);
+				_UNNAMED_30176 returnValue = new _UNNAMED_30176(_StructureData, _BufferOffset + 4);
 				return returnValue;
 			}
 		}
@@ -2836,13 +4016,13 @@ namespace LiveForensics.Symbols
 		public Int64 DataHigh { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 8); } }
 	}
 	#endregion
-	#region _UNNAMED_29938
+	#region _UNNAMED_30174
  
-	public class _UNNAMED_29938
+	public class _UNNAMED_30174
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_29938(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_30174(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -2854,7 +4034,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_29938"": [ 4, {
+				 ""_UNNAMED_30174"": [ 4, {
 				 ""BaseMiddle"": [ 0, [ ""Byte"", ""null"" ]],
 				 ""Flags1"": [ 1, [ ""Byte"", ""null"" ]],
 				 ""Flags2"": [ 2, [ ""Byte"", ""null"" ]],
@@ -2911,13 +4091,13 @@ namespace LiveForensics.Symbols
 		public UInt32 OldIrql { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 48); } }
 	}
 	#endregion
-	#region _UNNAMED_29940
+	#region _UNNAMED_30176
  
-	public class _UNNAMED_29940
+	public class _UNNAMED_30176
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_29940(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_30176(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -2929,7 +4109,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_29940"": [ 4, {
+				 ""_UNNAMED_30176"": [ 4, {
 				 ""BaseMiddle"": [ 0, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":0,\""target\"":\""UInt32\""}"" ]],
 				 ""Type"": [ 0, [ ""BitField"", ""{\""end_bit\"":13,\""start_bit\"":8,\""target\"":\""UInt32\""}"" ]],
 				 ""Dpl"": [ 0, [ ""BitField"", ""{\""end_bit\"":15,\""start_bit\"":13,\""target\"":\""UInt32\""}"" ]],
@@ -3236,6 +4416,68 @@ namespace LiveForensics.Symbols
 				return (Byte)value2;
 			}
 		}
+	}
+	#endregion
+	#region _XSTATE_FEATURE
+ 
+	public class _XSTATE_FEATURE
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _XSTATE_FEATURE(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 8; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_XSTATE_FEATURE"": [ 8, {
+				 ""Offset"": [ 0, [ ""UInt32"", ""null"" ]],
+				 ""Size"": [ 4, [ ""UInt32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 Offset { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public UInt32 Size { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 4); } }
+	}
+	#endregion
+	#region _GENERIC_MAPPING
+ 
+	public class _GENERIC_MAPPING
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _GENERIC_MAPPING(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_GENERIC_MAPPING"": [ 16, {
+				 ""GenericRead"": [ 0, [ ""UInt32"", ""null"" ]],
+				 ""GenericWrite"": [ 4, [ ""UInt32"", ""null"" ]],
+				 ""GenericExecute"": [ 8, [ ""UInt32"", ""null"" ]],
+				 ""GenericAll"": [ 12, [ ""UInt32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 GenericRead { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public UInt32 GenericWrite { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 4); } }
+		public UInt32 GenericExecute { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 8); } }
+		public UInt32 GenericAll { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 12); } }
 	}
 	#endregion
 	#region _KEVENT
