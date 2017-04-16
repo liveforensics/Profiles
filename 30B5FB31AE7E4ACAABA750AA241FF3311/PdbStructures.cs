@@ -10,8 +10,8 @@ namespace LiveForensics.Symbols
 		 public string MachineType { get { return @"Unknown"; } }
 		 public string SymbolsFileName { get { return @"ntkrnlpa.pdb"; } }
 		 public uint Signature { get { return 1208111466; } }
-		 public string Contents { get { return @"[""_EPROCESS"",""_KUSER_SHARED_DATA"",""_OBJECT_TYPE"",""_OBJECT_HEADER"",""_OBJECT_DIRECTORY_ENTRY"",""_OBJECT_DIRECTORY"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_LARGE_INTEGER"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_EX_FAST_REF"",""_FAST_MUTEX"",""_HARDWARE_PTE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_KSYSTEM_TIME"",""_ERESOURCE"",""_UNICODE_STRING"",""_OBJECT_TYPE_INITIALIZER"",""_QUAD"",""_DISPATCHER_HEADER"",""_KGDTENTRY"",""_KIDTENTRY"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""__unnamed"",""_KEVENT"",""_MMSUPPORT_FLAGS"",""_OWNER_ENTRY"",""_GENERIC_MAPPING""])"; } }
-		 public string Created { get { return "14-04-2017T13:55:52"; } }
+		 public string Contents { get { return @"[""_EPROCESS"",""_KUSER_SHARED_DATA"",""_OBJECT_TYPE"",""_OBJECT_HEADER"",""_OBJECT_DIRECTORY_ENTRY"",""_OBJECT_DIRECTORY"",""_OBJECT_HEADER_CREATOR_INFO"",""_OBJECT_HEADER_NAME_INFO"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_LARGE_INTEGER"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_EX_FAST_REF"",""_FAST_MUTEX"",""_HARDWARE_PTE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_KSYSTEM_TIME"",""_ERESOURCE"",""_UNICODE_STRING"",""_OBJECT_TYPE_INITIALIZER"",""_QUAD"",""_DISPATCHER_HEADER"",""_KGDTENTRY"",""_KIDTENTRY"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""__unnamed"",""_KEVENT"",""_MMSUPPORT_FLAGS"",""_OWNER_ENTRY"",""_GENERIC_MAPPING""])"; } }
+		 public string Created { get { return "16-04-2017T14:05:17"; } }
 	}
 	#endregion
 	#region _EPROCESS
@@ -1082,6 +1082,84 @@ namespace LiveForensics.Symbols
 		public UInt32 SessionId { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 156); } }
 		public UInt16 Reserved { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 160); } }
 		public UInt16 SymbolicLinkUsageCount { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 162); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_CREATOR_INFO
+ 
+	public class _OBJECT_HEADER_CREATOR_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_CREATOR_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_CREATOR_INFO"": [ 16, {
+				 ""TypeList"": [ 0, [ ""_LIST_ENTRY"", ""null"" ]],
+				 ""CreatorUniqueProcess"": [ 8, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""CreatorBackTraceIndex"": [ 12, [ ""UInt16"", ""null"" ]],
+				 ""Reserved"": [ 14, [ ""UInt16"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public _LIST_ENTRY TypeList
+		{
+			get
+			{
+				_LIST_ENTRY returnValue = new _LIST_ENTRY(_StructureData, _BufferOffset + 0);
+				return returnValue;
+			}
+		}
+		public UInt32 CreatorUniqueProcess { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 8); } }
+		public UInt16 CreatorBackTraceIndex { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 12); } }
+		public UInt16 Reserved { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 14); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_NAME_INFO
+ 
+	public class _OBJECT_HEADER_NAME_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_NAME_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_NAME_INFO"": [ 16, {
+				 ""Directory"": [ 0, [ ""Pointer"", ""{\""target\"":\""_OBJECT_DIRECTORY\""}"" ]],
+				 ""Name"": [ 4, [ ""_UNICODE_STRING"", ""null"" ]],
+				 ""QueryReferences"": [ 12, [ ""UInt32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 Directory { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public _UNICODE_STRING Name
+		{
+			get
+			{
+				_UNICODE_STRING returnValue = new _UNICODE_STRING(_StructureData, _BufferOffset + 4);
+				return returnValue;
+			}
+		}
+		public UInt32 QueryReferences { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 12); } }
 	}
 	#endregion
 	#region _KPROCESS

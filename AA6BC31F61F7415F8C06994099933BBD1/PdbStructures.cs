@@ -10,8 +10,8 @@ namespace LiveForensics.Symbols
 		 public string MachineType { get { return @"Amd64"; } }
 		 public string SymbolsFileName { get { return @"ntkrnlmp.pdb"; } }
 		 public uint Signature { get { return 1439015853; } }
-		 public string Contents { get { return @"[""_EPROCESS"",""_KUSER_SHARED_DATA"",""_OBJECT_TYPE"",""_OBJECT_HEADER"",""_OBJECT_DIRECTORY_ENTRY"",""_OBJECT_DIRECTORY"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29969"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_KSYSTEM_TIME"",""_XSTATE_CONFIGURATION"",""_UNICODE_STRING"",""_OBJECT_TYPE_INITIALIZER"",""_QUAD"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_30174"",""_FAST_MUTEX"",""_UNNAMED_30176"",""_MMSUPPORT_FLAGS"",""_XSTATE_FEATURE"",""_GENERIC_MAPPING"",""_KEVENT""])"; } }
-		 public string Created { get { return "14-04-2017T13:55:24"; } }
+		 public string Contents { get { return @"[""_EPROCESS"",""_KUSER_SHARED_DATA"",""_OBJECT_TYPE"",""_OBJECT_HEADER"",""_OBJECT_DIRECTORY_ENTRY"",""_OBJECT_DIRECTORY"",""_OBJECT_HEADER_CREATOR_INFO"",""_OBJECT_HEADER_NAME_INFO"",""_OBJECT_HEADER_HANDLE_INFO"",""_OBJECT_HEADER_QUOTA_INFO"",""_OBJECT_HEADER_PROCESS_INFO"",""_OBJECT_HEADER_AUDIT_INFO"",""_KPROCESS"",""_EX_PUSH_LOCK"",""_EX_RUNDOWN_REF"",""_LIST_ENTRY"",""_LARGE_INTEGER"",""_UNNAMED_29997"",""_EX_FAST_REF"",""_RTL_AVL_TREE"",""_SE_AUDIT_PROCESS_CREATION_INFO"",""_MMSUPPORT"",""_ALPC_PROCESS_CONTEXT"",""_PS_PROTECTION"",""_KSYSTEM_TIME"",""_XSTATE_CONFIGURATION"",""_UNICODE_STRING"",""_OBJECT_TYPE_INITIALIZER"",""_QUAD"",""_OBJECT_HANDLE_COUNT_ENTRY"",""_DISPATCHER_HEADER"",""_KAFFINITY_EX"",""_SINGLE_LIST_ENTRY"",""_KEXECUTE_OPTIONS"",""_KSTACK_COUNT"",""_KGDTENTRY64"",""_UNNAMED_30205"",""_FAST_MUTEX"",""_UNNAMED_30207"",""_MMSUPPORT_FLAGS"",""_XSTATE_FEATURE"",""_GENERIC_MAPPING"",""_KEVENT""])"; } }
+		 public string Created { get { return "15-04-2017T11:35:50"; } }
 	}
 	#endregion
 	#region _EPROCESS
@@ -2174,6 +2174,213 @@ namespace LiveForensics.Symbols
 		public UInt32 Flags { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 336); } }
 	}
 	#endregion
+	#region _OBJECT_HEADER_CREATOR_INFO
+ 
+	public class _OBJECT_HEADER_CREATOR_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_CREATOR_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 32; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_CREATOR_INFO"": [ 32, {
+				 ""TypeList"": [ 0, [ ""_LIST_ENTRY"", ""null"" ]],
+				 ""CreatorUniqueProcess"": [ 16, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""CreatorBackTraceIndex"": [ 24, [ ""UInt16"", ""null"" ]],
+				 ""Reserved"": [ 26, [ ""UInt16"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public _LIST_ENTRY TypeList
+		{
+			get
+			{
+				_LIST_ENTRY returnValue = new _LIST_ENTRY(_StructureData, _BufferOffset + 0);
+				return returnValue;
+			}
+		}
+		public UInt64 CreatorUniqueProcess { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 16); } }
+		public UInt16 CreatorBackTraceIndex { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 24); } }
+		public UInt16 Reserved { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 26); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_NAME_INFO
+ 
+	public class _OBJECT_HEADER_NAME_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_NAME_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 32; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_NAME_INFO"": [ 32, {
+				 ""Directory"": [ 0, [ ""Pointer"", ""{\""target\"":\""_OBJECT_DIRECTORY\""}"" ]],
+				 ""Name"": [ 8, [ ""_UNICODE_STRING"", ""null"" ]],
+				 ""ReferenceCount"": [ 24, [ ""Int32"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 Directory { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public _UNICODE_STRING Name
+		{
+			get
+			{
+				_UNICODE_STRING returnValue = new _UNICODE_STRING(_StructureData, _BufferOffset + 8);
+				return returnValue;
+			}
+		}
+		public Int32 ReferenceCount { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 24); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_HANDLE_INFO
+ 
+	public class _OBJECT_HEADER_HANDLE_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_HANDLE_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_HANDLE_INFO"": [ 16, {
+				 ""HandleCountDataBase"": [ 0, [ ""Pointer"", ""{\""target\"":\""_OBJECT_HANDLE_COUNT_DATABASE\""}"" ]],
+				 ""SingleEntry"": [ 0, [ ""_OBJECT_HANDLE_COUNT_ENTRY"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 HandleCountDataBase { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public _OBJECT_HANDLE_COUNT_ENTRY SingleEntry
+		{
+			get
+			{
+				_OBJECT_HANDLE_COUNT_ENTRY returnValue = new _OBJECT_HANDLE_COUNT_ENTRY(_StructureData, _BufferOffset + 0);
+				return returnValue;
+			}
+		}
+	}
+	#endregion
+	#region _OBJECT_HEADER_QUOTA_INFO
+ 
+	public class _OBJECT_HEADER_QUOTA_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_QUOTA_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 32; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_QUOTA_INFO"": [ 32, {
+				 ""PagedPoolCharge"": [ 0, [ ""UInt32"", ""null"" ]],
+				 ""NonPagedPoolCharge"": [ 4, [ ""UInt32"", ""null"" ]],
+				 ""SecurityDescriptorCharge"": [ 8, [ ""UInt32"", ""null"" ]],
+				 ""SecurityDescriptorQuotaBlock"": [ 16, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Reserved"": [ 24, [ ""UInt64"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt32 PagedPoolCharge { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
+		public UInt32 NonPagedPoolCharge { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 4); } }
+		public UInt32 SecurityDescriptorCharge { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 8); } }
+		public UInt64 SecurityDescriptorQuotaBlock { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 16); } }
+		public UInt64 Reserved { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 24); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_PROCESS_INFO
+ 
+	public class _OBJECT_HEADER_PROCESS_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_PROCESS_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_PROCESS_INFO"": [ 16, {
+				 ""ExclusiveProcess"": [ 0, [ ""Pointer"", ""{\""target\"":\""_EPROCESS\""}"" ]],
+				 ""Reserved"": [ 8, [ ""UInt64"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 ExclusiveProcess { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public UInt64 Reserved { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+	}
+	#endregion
+	#region _OBJECT_HEADER_AUDIT_INFO
+ 
+	public class _OBJECT_HEADER_AUDIT_INFO
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HEADER_AUDIT_INFO(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HEADER_AUDIT_INFO"": [ 16, {
+				 ""SecurityDescriptor"": [ 0, [ ""Pointer"", ""{\""target\"":\""void\""}"" ]],
+				 ""Reserved"": [ 8, [ ""UInt64"", ""null"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 SecurityDescriptor { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public UInt64 Reserved { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 8); } }
+	}
+	#endregion
 	#region _KPROCESS
  
 	public class _KPROCESS
@@ -2633,7 +2840,7 @@ namespace LiveForensics.Symbols
 				 ""_LARGE_INTEGER"": [ 8, {
 				 ""LowPart"": [ 0, [ ""UInt32"", ""null"" ]],
 				 ""HighPart"": [ 4, [ ""Int32"", ""null"" ]],
-				 ""u"": [ 0, [ ""_UNNAMED_29969"", ""null"" ]],
+				 ""u"": [ 0, [ ""_UNNAMED_29997"", ""null"" ]],
 				 ""QuadPart"": [ 0, [ ""Int64"", ""null"" ]] }]
 				 }
 				)";
@@ -2641,24 +2848,24 @@ namespace LiveForensics.Symbols
 		}
 		public UInt32 LowPart { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 0); } }
 		public Int32 HighPart { get { return BitConverter.ToInt32(_StructureData, _BufferOffset + 4); } }
-		public _UNNAMED_29969 u
+		public _UNNAMED_29997 u
 		{
 			get
 			{
-				_UNNAMED_29969 returnValue = new _UNNAMED_29969(_StructureData, _BufferOffset + 0);
+				_UNNAMED_29997 returnValue = new _UNNAMED_29997(_StructureData, _BufferOffset + 0);
 				return returnValue;
 			}
 		}
 		public Int64 QuadPart { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 0); } }
 	}
 	#endregion
-	#region _UNNAMED_29969
+	#region _UNNAMED_29997
  
-	public class _UNNAMED_29969
+	public class _UNNAMED_29997
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_29969(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_29997(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -2670,7 +2877,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_29969"": [ 8, {
+				 ""_UNNAMED_29997"": [ 8, {
 				 ""LowPart"": [ 0, [ ""UInt32"", ""null"" ]],
 				 ""HighPart"": [ 4, [ ""Int32"", ""null"" ]] }]
 				 }
@@ -3317,6 +3524,55 @@ namespace LiveForensics.Symbols
 		}
 		public Int64 UseThisFieldToCopy { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 0); } }
 		public Double DoNotUseThisField { get { return BitConverter.ToDouble(_StructureData, _BufferOffset + 0); } }
+	}
+	#endregion
+	#region _OBJECT_HANDLE_COUNT_ENTRY
+ 
+	public class _OBJECT_HANDLE_COUNT_ENTRY
+	{
+		private Byte[] _StructureData;
+		private int _BufferOffset;
+		public _OBJECT_HANDLE_COUNT_ENTRY(Byte[] Buffer, int PartitionOffset)
+		{
+			_StructureData = Buffer;
+			_BufferOffset = PartitionOffset;
+		}
+		public int MxStructureSize { get { return 16; } }
+		public string manifest
+		{
+			get
+			{
+				return @"(
+				{
+				 ""_OBJECT_HANDLE_COUNT_ENTRY"": [ 16, {
+				 ""Process"": [ 0, [ ""Pointer"", ""{\""target\"":\""_EPROCESS\""}"" ]],
+				 ""HandleCount"": [ 8, [ ""BitField"", ""{\""end_bit\"":24,\""start_bit\"":0,\""target\"":\""UInt32\""}"" ]],
+				 ""LockCount"": [ 8, [ ""BitField"", ""{\""end_bit\"":32,\""start_bit\"":24,\""target\"":\""UInt32\""}"" ]] }]
+				 }
+				)";
+			}
+		}
+		public UInt64 Process { get { return BitConverter.ToUInt64(_StructureData, _BufferOffset + 0); } }
+		public UInt32 HandleCount
+		{
+			get
+			{
+				// start: 0  end: 24  Mask: 111111111111111111111111
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 8);
+				var value2 = (value & 16777215) >> 0;
+				return (UInt32)value2;
+			}
+		}
+		public UInt32 LockCount
+		{
+			get
+			{
+				// start: 24  end: 32  Mask: 11111111000000000000000000000000
+				var value = BitConverter.ToUInt32(_StructureData, _BufferOffset + 8);
+				var value2 = (value & 4278190080) >> 24;
+				return (UInt32)value2;
+			}
+		}
 	}
 	#endregion
 	#region _DISPATCHER_HEADER
@@ -3982,8 +4238,8 @@ namespace LiveForensics.Symbols
 				 ""_KGDTENTRY64"": [ 16, {
 				 ""LimitLow"": [ 0, [ ""UInt16"", ""null"" ]],
 				 ""BaseLow"": [ 2, [ ""UInt16"", ""null"" ]],
-				 ""Bytes"": [ 4, [ ""_UNNAMED_30174"", ""null"" ]],
-				 ""Bits"": [ 4, [ ""_UNNAMED_30176"", ""null"" ]],
+				 ""Bytes"": [ 4, [ ""_UNNAMED_30205"", ""null"" ]],
+				 ""Bits"": [ 4, [ ""_UNNAMED_30207"", ""null"" ]],
 				 ""BaseUpper"": [ 8, [ ""UInt32"", ""null"" ]],
 				 ""MustBeZero"": [ 12, [ ""UInt32"", ""null"" ]],
 				 ""DataLow"": [ 0, [ ""Int64"", ""null"" ]],
@@ -3994,19 +4250,19 @@ namespace LiveForensics.Symbols
 		}
 		public UInt16 LimitLow { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 0); } }
 		public UInt16 BaseLow { get { return BitConverter.ToUInt16(_StructureData, _BufferOffset + 2); } }
-		public _UNNAMED_30174 Bytes
+		public _UNNAMED_30205 Bytes
 		{
 			get
 			{
-				_UNNAMED_30174 returnValue = new _UNNAMED_30174(_StructureData, _BufferOffset + 4);
+				_UNNAMED_30205 returnValue = new _UNNAMED_30205(_StructureData, _BufferOffset + 4);
 				return returnValue;
 			}
 		}
-		public _UNNAMED_30176 Bits
+		public _UNNAMED_30207 Bits
 		{
 			get
 			{
-				_UNNAMED_30176 returnValue = new _UNNAMED_30176(_StructureData, _BufferOffset + 4);
+				_UNNAMED_30207 returnValue = new _UNNAMED_30207(_StructureData, _BufferOffset + 4);
 				return returnValue;
 			}
 		}
@@ -4016,13 +4272,13 @@ namespace LiveForensics.Symbols
 		public Int64 DataHigh { get { return BitConverter.ToInt64(_StructureData, _BufferOffset + 8); } }
 	}
 	#endregion
-	#region _UNNAMED_30174
+	#region _UNNAMED_30205
  
-	public class _UNNAMED_30174
+	public class _UNNAMED_30205
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_30174(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_30205(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -4034,7 +4290,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_30174"": [ 4, {
+				 ""_UNNAMED_30205"": [ 4, {
 				 ""BaseMiddle"": [ 0, [ ""Byte"", ""null"" ]],
 				 ""Flags1"": [ 1, [ ""Byte"", ""null"" ]],
 				 ""Flags2"": [ 2, [ ""Byte"", ""null"" ]],
@@ -4091,13 +4347,13 @@ namespace LiveForensics.Symbols
 		public UInt32 OldIrql { get { return BitConverter.ToUInt32(_StructureData, _BufferOffset + 48); } }
 	}
 	#endregion
-	#region _UNNAMED_30176
+	#region _UNNAMED_30207
  
-	public class _UNNAMED_30176
+	public class _UNNAMED_30207
 	{
 		private Byte[] _StructureData;
 		private int _BufferOffset;
-		public _UNNAMED_30176(Byte[] Buffer, int PartitionOffset)
+		public _UNNAMED_30207(Byte[] Buffer, int PartitionOffset)
 		{
 			_StructureData = Buffer;
 			_BufferOffset = PartitionOffset;
@@ -4109,7 +4365,7 @@ namespace LiveForensics.Symbols
 			{
 				return @"(
 				{
-				 ""_UNNAMED_30176"": [ 4, {
+				 ""_UNNAMED_30207"": [ 4, {
 				 ""BaseMiddle"": [ 0, [ ""BitField"", ""{\""end_bit\"":8,\""start_bit\"":0,\""target\"":\""UInt32\""}"" ]],
 				 ""Type"": [ 0, [ ""BitField"", ""{\""end_bit\"":13,\""start_bit\"":8,\""target\"":\""UInt32\""}"" ]],
 				 ""Dpl"": [ 0, [ ""BitField"", ""{\""end_bit\"":15,\""start_bit\"":13,\""target\"":\""UInt32\""}"" ]],
